@@ -3,7 +3,7 @@
 [![NPM](https://nodei.co/npm/husky-4-to-5.png)](https://nodei.co/npm/husky-4-to-5/)
 
 [![NPM version](https://img.shields.io/npm/v/husky-4-to-5.svg)](https://www.npmjs.com/package/husky-4-to-5)
-[![Build Status](https://github.com/remarkablemark/husky-4-to-5/workflows/build/badge.svg?branch=master)](https://github.com/remarkablemark/husky-4-to-5/actions?query=workflow%3Abuild)
+[![build](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml)
 
 Migrates [husky](https://typicode.github.io/husky) 4 to 5.
 
