@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/husky-4-to-5.svg)](https://www.npmjs.com/package/husky-4-to-5)
 [![build](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml)
 
-Migrates [husky](https://typicode.github.io/husky) 4 to 5.
+Migrates [husky](https://typicode.github.io/husky/) 4 to 5.
 
 ```sh
 npx husky-4-to-5
@@ -71,14 +71,14 @@ The config file will be removed and changes to the repository will be committed.
 
 Hooks may need to be manually updated to be run via the package manager. For example:
 
-```
-jest → npx --no-install jest
+```sh
+jest → npx jest
      → yarn jest
 
-jest && eslint → npx --no-install jest && npx --no-install eslint
+jest && eslint → npx jest && npx eslint
                → yarn jest && yarn eslint
 
-commitlint -E HUSKY_GIT_PARAMS → npx --no-install commitlint --edit $1
+commitlint -E HUSKY_GIT_PARAMS → npx commitlint --edit $1
                                → yarn commitlint --edit $1
 ```
 
