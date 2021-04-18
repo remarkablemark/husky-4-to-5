@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/husky-4-to-5.svg)](https://www.npmjs.com/package/husky-4-to-5)
 [![build](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml)
 
-Migrates [husky](https://typicode.github.io/husky/) 4 to 5.
+Migrates [husky](https://typicode.github.io/husky/) 4 to 6.
 
 ```sh
 npx husky-4-to-5
