@@ -11,11 +11,7 @@ Migrates [husky](https://typicode.github.io/husky/) 4 to 6.
 npx husky-4-to-5
 ```
 
-Alternatively, there's [typicode/husky-4-to-5](https://github.com/typicode/husky-4-to-5) (requires npm 7+):
-
-```sh
-npm exec -- github:typicode/husky-4-to-5 --package-manager npm
-```
+Alternatively, there's [typicode/husky-4-to-6](https://github.com/typicode/husky-4-to-6) (requires npm 7+).
 
 ## Install
 
