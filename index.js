@@ -97,7 +97,8 @@ if (packageJson.husky) {
 /**
  * devDependencies.
  */
-const devDependencies = ['husky@5'];
+const HUSKY_VERSION = 6;
+const devDependencies = [`husky@${HUSKY_VERSION}`];
 
 /**
  * Update `package.json`.
@@ -149,6 +150,9 @@ isGitRepository && exec('git add .husky/');
  */
 log('Committing changes...');
 isGitRepository &&
-  exec(`git commit -m 'chore: migrate husky 4 to 5' -m '${name} v${version}'`);
+  exec(
+    `git commit -m 'chore: migrate husky 4 to ${HUSKY_VERSION}' -m '${name} v${version}'`
+  );
 
-log(`Finished ${name}`);
+log(`Finished ${name} v${version}`);
+log('Test your Git hooks by running them. Example: `git commit --amend`');
