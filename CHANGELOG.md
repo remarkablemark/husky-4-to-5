@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/remarkablemark/husky-4-to-5/compare/v1.1.0...v1.1.1) (2021-05-05)
+
+
+### Bug Fixes
+
+* **index:** use readFileSync and JSON.parse for `.huskyrc` file ([80352a9](https://github.com/remarkablemark/husky-4-to-5/commit/80352a911d2cc175c155421a8a63254f7482458e))
+
 ## [1.1.0](https://github.com/remarkablemark/husky-4-to-5/compare/v1.0.0...v1.1.0) (2021-04-18)
 
 
