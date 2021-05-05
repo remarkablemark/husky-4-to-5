@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { existsSync, writeFileSync } = require('fs');
+const { existsSync, readFileSync, writeFileSync } = require('fs');
 const { execSync } = require('child_process');
 const { resolve } = require('path');
 
@@ -81,7 +81,7 @@ if (packageJson.husky) {
   husky = packageJson.husky;
   delete packageJson.husky;
 } else if (existsSync(huskyrcPath)) {
-  husky = require(huskyrcPath);
+  husky = JSON.parse(readFileSync(huskyrcPath));
   exec(`git rm ${huskyrcPath}`);
 } else if (existsSync(huskyrcJsonPath)) {
   husky = require(huskyrcJsonPath);
