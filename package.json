@@ -1,7 +1,7 @@
 {
   "name": "husky-4-to-5",
   "version": "1.1.1",
-  "description": "Migrates husky 4 to 5.",
+  "description": "Migrates husky 4 to 7.",
   "author": "Mark <mark@remarkablemark.org>",
   "bin": "index.js",
   "scripts": {
@@ -9,8 +9,7 @@
     "lint:fix": "npm run lint -- --fix",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
-    "prepublishOnly": "pinst --disable",
-    "release": "standard-version --no-verify"
+    "prepublishOnly": "pinst --disable"
   },
   "repository": {
     "type": "git",
