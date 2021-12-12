@@ -97,7 +97,7 @@ if (packageJson.husky) {
 /**
  * devDependencies.
  */
-const HUSKY_VERSION = 6;
+const HUSKY_VERSION = 7;
 const devDependencies = [`husky@${HUSKY_VERSION}`];
 
 /**
