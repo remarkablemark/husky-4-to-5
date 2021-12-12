@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/husky-4-to-5.svg)](https://www.npmjs.com/package/husky-4-to-5)
 [![build](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml)
 
-Migrates [husky](https://typicode.github.io/husky/) 4 to 6.
+Migrates [husky](https://typicode.github.io/husky/) 4 to 7.
 
 ```sh
 npx husky-4-to-5
@@ -15,13 +15,17 @@ Alternatively, there's [typicode/husky-4-to-6](https://github.com/typicode/husky
 
 ## Install
 
-Install the CLI globally:
+### Global
+
+Install with npm:
 
 ```sh
-# with npm
 npm install --global husky-4-to-5
+```
 
-# with yarn
+Install with yarn:
+
+```sh
 yarn global add husky-4-to-5
 ```
 
@@ -94,12 +98,7 @@ npm run lint:fix
 
 ## Release
 
-Only collaborators with credentials can release and publish:
-
-```sh
-npm run release
-git push --follow-tags && npm publish
-```
+Release is automated with [Release Please](https://github.com/googleapis/release-please).
 
 ## License
 
