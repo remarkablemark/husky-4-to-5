@@ -102,8 +102,12 @@ write(packageJsonPath, packageJson);
  * Install dependencies.
  */
 log('Installing devDependencies...');
+
 exec(`npm install --save-dev ${devDependencies.join(' ')}`);
-isGitRepository && exec('git add package.json');
+
+if (isGitRepository) {
+  exec('git add package.json');
+}
 
 /**
  * Add hooks.
@@ -125,16 +129,20 @@ Object.entries(husky.hooks).forEach(([hook, command]) => {
   }
 });
 
-isGitRepository && exec('git add .husky');
+if (isGitRepository) {
+  exec('git add .husky');
+}
 
 /**
  * Commit changes.
  */
 log('Committing changes...');
-isGitRepository &&
+
+if (isGitRepository) {
   exec(
     `git commit -m 'chore: migrate husky 4 to ${HUSKY_VERSION}' -m '${name} v${version}'`
   );
+}
 
 log(`Finished ${name} v${version}`);
 log('Test your Git hooks by running them. Example: `git commit --amend`');
