@@ -3,10 +3,13 @@
   "version": "1.2.0",
   "description": "Migrates husky 4 to 7.",
   "author": "Mark <mark@remarkablemark.org>",
-  "bin": "index.js",
+  "bin": "lib/index.js",
   "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf lib",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
+    "lint:tsc": "tsc --noEmit",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable"
@@ -20,6 +23,8 @@
   },
   "keywords": [
     "husky-4-to-5",
+    "husky-4-to-6",
+    "husky-4-to-7",
     "husky",
     "migration",
     "cli"
@@ -40,7 +45,7 @@
     "typescript": "^4.5.4"
   },
   "files": [
-    "/index.js"
+    "/lib"
   ],
   "license": "MIT"
 }
