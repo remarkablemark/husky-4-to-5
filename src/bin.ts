@@ -55,7 +55,7 @@ if (packageJson.husky) {
   husky = packageJson.husky;
   delete packageJson.husky;
 } else if (existsSync(huskyrcPath)) {
-  husky = JSON.parse(readFileSync(huskyrcPath).toString());
+  husky = JSON.parse(readFileSync(huskyrcPath, 'utf8'));
   exec(`git rm ${huskyrcPath}`);
 } else if (existsSync(huskyrcJsonPath)) {
   husky = require(huskyrcJsonPath);
