@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://www.github.com/remarkablemark/husky-4-to-5/compare/v1.2.0...v1.2.1) (2021-12-19)
+
+
+### Bug Fixes
+
+* don't escape $1 when adding command to husky hook ([7c9d69b](https://www.github.com/remarkablemark/husky-4-to-5/commit/7c9d69ba980a36b421fb8c313690a92286d71543))
+* join husky hook path to support other OS ([88d3665](https://www.github.com/remarkablemark/husky-4-to-5/commit/88d3665f71d49b583fdd2441d8bc2c326157cb96))
+
 ## [1.2.0](https://www.github.com/remarkablemark/husky-4-to-5/compare/v1.1.1...v1.2.0) (2021-12-12)
 
 
