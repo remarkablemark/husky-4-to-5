@@ -3,7 +3,7 @@
   "version": "1.2.1",
   "description": "Migrates husky 4 to 7.",
   "author": "Mark <mark@remarkablemark.org>",
-  "bin": "lib/index.js",
+  "bin": "lib/bin.js",
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf lib",
