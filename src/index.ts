@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
 import { existsSync, readFileSync } from 'fs';
-import { resolve } from 'path';
+import { join } from 'path';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { name, version } from '../package.json';
 import { HUSKY_VERSION } from './constants';
 import { cwd, exec, log, write } from './utilities';
-import type { JSONValue } from './types';
 
 /**
  * Display exit code.
@@ -36,7 +35,7 @@ try {
 /**
  * Require `package.json`.
  */
-const packageJsonPath = resolve(cwd, 'package.json');
+const packageJsonPath = join(cwd, 'package.json');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJson = require(packageJsonPath);
 
@@ -47,10 +46,10 @@ let husky: { hooks: Record<string, string> } = {
   hooks: {}
 };
 
-const huskyrcPath = resolve(cwd, '.huskyrc');
-const huskyrcJsonPath = resolve(cwd, '.huskyrc.json');
-const huskyrcJsPath = resolve(cwd, '.huskyrc.js');
-const huskyConfigJsPath = resolve(cwd, 'husky.config.js');
+const huskyrcPath = join(cwd, '.huskyrc');
+const huskyrcJsonPath = join(cwd, '.huskyrc.json');
+const huskyrcJsPath = join(cwd, '.huskyrc.js');
+const huskyConfigJsPath = join(cwd, 'husky.config.js');
 
 if (packageJson.husky) {
   husky = packageJson.husky;
@@ -113,13 +112,20 @@ log('Adding hooks...');
 exec(`npx ${huskyInstall}`);
 
 Object.entries(husky.hooks).forEach(([hook, command]) => {
-  command = command
-    .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
-    .replace(/HUSKY_GIT_PARAMS/g, '$1');
-  exec(`npx husky add .husky/${hook} '${command}'`);
+  const huskyHookPath = join('.husky', hook);
+
+  if (/HUSKY_GIT_PARAMS/.test(command)) {
+    exec(`npx husky set ${huskyHookPath} ''`);
+    command = command
+      .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
+      .replace(/HUSKY_GIT_PARAMS/g, '$1');
+    exec(`echo '${command}' >> ${huskyHookPath}`);
+  } else {
+    exec(`npx husky set ${huskyHookPath} '${command}'`);
+  }
 });
 
-isGitRepository && exec('git add .husky/');
+isGitRepository && exec('git add .husky');
 
 /**
  * Commit changes.
