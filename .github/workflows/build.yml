@@ -27,8 +27,16 @@ jobs:
       - name: Lint commit message
         run: npx commitlint --from=HEAD~1
 
-      - name: Run ESLint
+      - name: ESLint
         run: npm run lint
 
       - name: Build
         run: npm run build
+
+      - name: Configure Git user
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Test
+        run: npm test -- --ci --colors
