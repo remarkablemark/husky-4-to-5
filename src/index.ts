@@ -43,7 +43,7 @@ const packageJson = require(packageJsonPath);
 /**
  * Require husky config.
  */
-let husky: { hooks: Record<string, JSONValue> } = {
+let husky: { hooks: Record<string, string> } = {
   hooks: {}
 };
 
@@ -113,12 +113,10 @@ log('Adding hooks...');
 exec(`npx ${huskyInstall}`);
 
 Object.entries(husky.hooks).forEach(([hook, command]) => {
-  if (typeof command === 'string') {
-    command = command
-      .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
-      .replace(/HUSKY_GIT_PARAMS/g, '$1');
-    exec(`npx husky add .husky/${hook} '${command}'`);
-  }
+  command = command
+    .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
+    .replace(/HUSKY_GIT_PARAMS/g, '$1');
+  exec(`npx husky add .husky/${hook} '${command}'`);
 });
 
 isGitRepository && exec('git add .husky/');
