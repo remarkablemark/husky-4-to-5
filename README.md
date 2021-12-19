@@ -11,7 +11,7 @@ Migrates [husky](https://typicode.github.io/husky/) 4 to 7.
 npx husky-4-to-5
 ```
 
-Alternatively, there's [typicode/husky-4-to-6](https://github.com/typicode/husky-4-to-6) (requires npm 7+).
+Alternatively, there's [typicode/husky-4-to-7](https://github.com/typicode/husky-4-to-7) (requires npm 7+).
 
 ## Install
 
@@ -98,7 +98,7 @@ npm run lint:fix
 
 ## Release
 
-Release is automated with [Release Please](https://github.com/googleapis/release-please).
+Release and publish are automated with [Release Please](https://github.com/googleapis/release-please).
 
 ## License
 
