@@ -8,7 +8,6 @@ import { resolve } from 'path';
 import { name, version } from '../package.json';
 import { HUSKY_VERSION } from './constants';
 import { cwd, exec, log, write } from './utilities';
-import type { JSONValue } from './types';
 
 /**
  * Display exit code.

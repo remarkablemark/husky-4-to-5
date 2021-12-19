@@ -3,7 +3,9 @@
   "extends": ["plugin:@typescript-eslint/recommended"],
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
+    "@typescript-eslint/no-unused-vars": ["error"],
     "no-debugger": "error",
+    "no-unused-vars": "off",
     "prettier/prettier": "error"
   }
 }
