@@ -1,44 +1,14 @@
 #!/usr/bin/env node
 
-const { existsSync, readFileSync, writeFileSync } = require('fs');
-const { execSync } = require('child_process');
-const { resolve } = require('path');
+import { existsSync, readFileSync } from 'fs';
+import { resolve } from 'path';
 
-const { name, version } = require('./package');
-
-const cwd = process.cwd();
-
-const execSyncOptions = {
-  cwd: cwd,
-  stdio: 'inherit'
-};
-
-/**
- * Runs command.
- *
- * @param {string} command
- * @return {string}
- */
-const exec = command => execSync(command, execSyncOptions);
-
-/**
- * Logs to console.
- *
- * @param {...*} args
- */
-const log = (...args) => console.log('INFO:', ...args);
-
-/**
- * Writes to file.
- *
- * @param {string} file
- * @param {*} data
- */
-const write = (file, data) =>
-  writeFileSync(
-    file,
-    (typeof data === 'string' ? data : JSON.stringify(data, null, 2)) + '\n'
-  );
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { name, version } from '../package.json';
+import { HUSKY_VERSION } from './constants';
+import { cwd, exec, log, write } from './utilities';
+import type { JSONValue } from './types';
 
 /**
  * Display exit code.
@@ -56,6 +26,7 @@ log(`${name} v${version}`);
  * Check if current working directory is git repository.
  */
 let isGitRepository = true;
+
 try {
   exec(`git -C ${cwd} rev-parse`);
 } catch (err) {
@@ -66,12 +37,16 @@ try {
  * Require `package.json`.
  */
 const packageJsonPath = resolve(cwd, 'package.json');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJson = require(packageJsonPath);
 
 /**
  * Require husky config.
  */
-let husky = {};
+let husky: { hooks: Record<string, string> } = {
+  hooks: {}
+};
+
 const huskyrcPath = resolve(cwd, '.huskyrc');
 const huskyrcJsonPath = resolve(cwd, '.huskyrc.json');
 const huskyrcJsPath = resolve(cwd, '.huskyrc.js');
@@ -81,7 +56,7 @@ if (packageJson.husky) {
   husky = packageJson.husky;
   delete packageJson.husky;
 } else if (existsSync(huskyrcPath)) {
-  husky = JSON.parse(readFileSync(huskyrcPath));
+  husky = JSON.parse(readFileSync(huskyrcPath).toString());
   exec(`git rm ${huskyrcPath}`);
 } else if (existsSync(huskyrcJsonPath)) {
   husky = require(huskyrcJsonPath);
@@ -97,7 +72,6 @@ if (packageJson.husky) {
 /**
  * devDependencies.
  */
-const HUSKY_VERSION = 7;
 const devDependencies = [`husky@${HUSKY_VERSION}`];
 
 /**
@@ -137,12 +111,14 @@ isGitRepository && exec('git add package.json');
  */
 log('Adding hooks...');
 exec(`npx ${huskyInstall}`);
-for (let hook in husky.hooks) {
-  const command = husky.hooks[hook]
+
+Object.entries(husky.hooks).forEach(([hook, command]) => {
+  command = command
     .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
     .replace(/HUSKY_GIT_PARAMS/g, '$1');
   exec(`npx husky add .husky/${hook} '${command}'`);
-}
+});
+
 isGitRepository && exec('git add .husky/');
 
 /**
