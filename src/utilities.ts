@@ -7,7 +7,7 @@ export const cwd = process.cwd();
 
 const execSyncOptions = {
   cwd: cwd,
-  stdio: 'inherit'
+  stdio: 'inherit',
 } as const;
 
 /**
@@ -30,6 +30,6 @@ export function log(...args: string[]) {
 export function write(file: string, data: JSONValue) {
   return writeFileSync(
     file,
-    (typeof data === 'string' ? data : JSON.stringify(data, null, 2)) + '\n'
+    (typeof data === 'string' ? data : JSON.stringify(data, null, 2)) + '\n',
   );
 }

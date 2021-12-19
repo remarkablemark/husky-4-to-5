@@ -12,7 +12,7 @@ import { cwd, exec, log, write } from './utilities';
 /**
  * Display exit code.
  */
-process.on('exit', code => {
+process.on('exit', (code) => {
   log(`Exited with code: ${code}`);
 });
 
@@ -43,7 +43,7 @@ const packageJson = require(packageJsonPath);
  * Require husky config.
  */
 let husky: { hooks: Record<string, string> } = {
-  hooks: {}
+  hooks: {},
 };
 
 const huskyrcPath = join(cwd, '.huskyrc');
@@ -140,7 +140,7 @@ log('Committing changes...');
 
 if (isGitRepository) {
   exec(
-    `git commit -m 'chore: migrate husky 4 to ${HUSKY_VERSION}' -m '${name} v${version}'`
+    `git commit -m 'chore: migrate husky 4 to ${HUSKY_VERSION}' -m '${name} v${version}'`,
   );
 }
 
