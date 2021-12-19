@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "rootDir": "./src",
+    "rootDir": ".",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "declaration": true,
-    "outDir": "./lib",
+    "outDir": "../lib",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

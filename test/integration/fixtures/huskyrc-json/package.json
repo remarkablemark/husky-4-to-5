@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "husky": "4"
+  }
+}
