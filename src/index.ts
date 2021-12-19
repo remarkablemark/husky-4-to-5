@@ -112,13 +112,18 @@ log('Adding hooks...');
 exec(`npx ${huskyInstall}`);
 
 Object.entries(husky.hooks).forEach(([hook, command]) => {
-  command = command
-    .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
-    .replace(/HUSKY_GIT_PARAMS/g, '$1');
-  exec(`npx husky add .husky/${hook} '${command}'`);
+  if (/HUSKY_GIT_PARAMS/.test(command)) {
+    exec(`npx husky set .husky/${hook} ''`);
+    command = command
+      .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
+      .replace(/HUSKY_GIT_PARAMS/g, '$1');
+    exec(`echo '${command}' >> .husky/${hook}`);
+  } else {
+    exec(`npx husky set .husky/${hook} '${command}'`);
+  }
 });
 
-isGitRepository && exec('git add .husky/');
+isGitRepository && exec('git add .husky');
 
 /**
  * Commit changes.
