@@ -48,7 +48,7 @@ describe('.huskyrc.json', () => {
     expect(await readFile(resolve(buildDirectory, '.husky/commit-msg')))
       .toMatchInlineSnapshot(`
       "#!/bin/sh
-      . \\"$(dirname \\"$0\\")/_/husky.sh\\"
+      . "$(dirname "$0")/_/husky.sh"
 
 
       commitlint --edit $1
@@ -60,7 +60,7 @@ describe('.huskyrc.json', () => {
     expect(await readFile(resolve(buildDirectory, '.husky/pre-commit')))
       .toMatchInlineSnapshot(`
       "#!/bin/sh
-      . \\"$(dirname \\"$0\\")/_/husky.sh\\"
+      . "$(dirname "$0")/_/husky.sh"
 
       npm test
       "
