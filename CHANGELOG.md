@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/remarkablemark/husky-4-to-5/compare/v1.2.2...v1.3.0) (2023-04-12)
+
+
+### Features
+
+* update husky version from 7 to 8 ([fc03ec6](https://github.com/remarkablemark/husky-4-to-5/commit/fc03ec6420578598a01069dc3ae0c83f5b39a204))
+
 ## [1.2.2](https://github.com/remarkablemark/husky-4-to-5/compare/v1.2.1...v1.2.2) (2023-04-12)
 
 
