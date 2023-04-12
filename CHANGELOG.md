@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.2](https://github.com/remarkablemark/husky-4-to-5/compare/v1.2.1...v1.2.2) (2023-04-12)
+
+
+### Bug Fixes
+
+* **package:** run build in prepublishOnly and tidy scripts ([1dd5fdd](https://github.com/remarkablemark/husky-4-to-5/commit/1dd5fdd525edacf5e349237282d645c9dbc1adb9))
+
 ### [1.2.1](https://www.github.com/remarkablemark/husky-4-to-5/compare/v1.2.0...v1.2.1) (2021-12-19)
 
 
