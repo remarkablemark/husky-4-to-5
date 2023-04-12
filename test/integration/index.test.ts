@@ -17,25 +17,25 @@ const path = {
   },
 };
 
+const fixturesDirectory = path.fixtures.huskyrcJson;
+const buildDirectory = fixturesDirectory.replace(fixtures, build);
+
+beforeAll(async () => {
+  await exec(`rm -rf ${buildDirectory}`);
+  await exec(`mkdir -p ${dirname(buildDirectory)}`);
+  await exec(`cp -r ${fixturesDirectory} ${buildDirectory}`);
+  await exec(`git init ${buildDirectory}`);
+  await exec(`git -C ${buildDirectory} add .`);
+  await exec(`git -C ${buildDirectory} commit -a -m 'chore: initial commit'`);
+  await exec(`cd ${buildDirectory} && node ${path.bin}`);
+}, 30000); // increase timeout to 30 seconds
+
+afterAll(async () => {
+  await exec(`rm -rf ${buildDirectory}`);
+  await exec(`cd ${path.cwd}`);
+});
+
 describe('.huskyrc.json', () => {
-  const fixturesDirectory = path.fixtures.huskyrcJson;
-  const buildDirectory = fixturesDirectory.replace(fixtures, build);
-
-  beforeAll(async () => {
-    await exec(`rm -rf ${buildDirectory}`);
-    await exec(`mkdir -p ${dirname(buildDirectory)}`);
-    await exec(`cp -r ${fixturesDirectory} ${buildDirectory}`);
-    await exec(`git init ${buildDirectory}`);
-    await exec(`git -C ${buildDirectory} add .`);
-    await exec(`git -C ${buildDirectory} commit -a -m 'chore: initial commit'`);
-    await exec(`cd ${buildDirectory} && node ${path.bin}`);
-  }, 30000); // increase timeout to 30 seconds
-
-  afterAll(async () => {
-    await exec(`rm -rf ${buildDirectory}`);
-    await exec(`cd ${path.cwd}`);
-  });
-
   it('removes .huskyrc.json', async () => {
     expect(await exists(resolve(buildDirectory, '.huskyrc.json'))).toBe(false);
   });
@@ -47,8 +47,8 @@ describe('.huskyrc.json', () => {
   it('adds .husky/commit-msg', async () => {
     expect(await readFile(resolve(buildDirectory, '.husky/commit-msg')))
       .toMatchInlineSnapshot(`
-      "#!/bin/sh
-      . "$(dirname "$0")/_/husky.sh"
+      "#!/usr/bin/env sh
+      . "$(dirname -- "$0")/_/husky.sh"
 
 
       commitlint --edit $1
@@ -59,8 +59,8 @@ describe('.huskyrc.json', () => {
   it('adds .husky/pre-commit', async () => {
     expect(await readFile(resolve(buildDirectory, '.husky/pre-commit')))
       .toMatchInlineSnapshot(`
-      "#!/bin/sh
-      . "$(dirname "$0")/_/husky.sh"
+      "#!/usr/bin/env sh
+      . "$(dirname -- "$0")/_/husky.sh"
 
       npm test
       "
@@ -78,7 +78,7 @@ describe('.huskyrc.json', () => {
         prepublishOnly: 'pinst --disable',
       },
       devDependencies: {
-        husky: expect.stringContaining('^7.'),
+        husky: expect.stringContaining('^8.'),
         pinst: expect.stringContaining('^'),
       },
     });

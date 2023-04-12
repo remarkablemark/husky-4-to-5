@@ -140,7 +140,7 @@ log('Committing changes...');
 
 if (isGitRepository) {
   exec(
-    `git commit -m 'chore: migrate husky 4 to ${HUSKY_VERSION}' -m '${name} v${version}'`,
+    `git commit -m 'chore: migrate husky to ${HUSKY_VERSION}' -m '${name} v${version}'`,
   );
 }
 
