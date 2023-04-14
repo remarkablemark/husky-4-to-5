@@ -99,11 +99,20 @@ if (!packageJson.private) {
 write(packageJsonPath, packageJson);
 
 /**
+ * Check whether project is using npm or yarn.
+ */
+const hasYarn = existsSync('yarn.lock');
+
+/**
  * Install dependencies.
  */
 log('Installing devDependencies...');
 
-exec(`npm install --save-dev ${devDependencies.join(' ')}`);
+if (hasYarn) {
+  exec(`yarn add --dev ${devDependencies.join(' ')}`);
+} else {
+  exec(`npm install --save-dev ${devDependencies.join(' ')}`);
+}
 
 if (isGitRepository) {
   exec('git add package.json');
