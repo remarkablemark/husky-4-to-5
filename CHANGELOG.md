@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/remarkablemark/husky-4-to-5/compare/v1.3.0...v1.4.0) (2023-04-14)
+
+
+### Features
+
+* **bin:** check whether project is using npm or yarn ([be3fde2](https://github.com/remarkablemark/husky-4-to-5/commit/be3fde27906eb4898eaf186f368b3184834f33c6)), closes [#147](https://github.com/remarkablemark/husky-4-to-5/issues/147)
+* **bin:** check whether project is using npm or yarn ([76067a4](https://github.com/remarkablemark/husky-4-to-5/commit/76067a4075817e5eb14b9d39b0edcb4283567420))
+
 ## [1.3.0](https://github.com/remarkablemark/husky-4-to-5/compare/v1.2.2...v1.3.0) (2023-04-12)
 
 
