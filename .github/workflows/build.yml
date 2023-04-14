@@ -17,6 +17,9 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Lint commit message
         run: npx commitlint --from=HEAD~1
 
