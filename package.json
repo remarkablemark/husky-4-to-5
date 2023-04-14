@@ -1,6 +1,6 @@
 {
   "name": "husky-4-to-5",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Migrates husky 4 to 8.",
   "author": "Mark <mark@remarkablemark.org>",
   "bin": "lib/bin.js",
