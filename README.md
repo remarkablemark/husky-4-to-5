@@ -5,13 +5,13 @@
 [![NPM version](https://img.shields.io/npm/v/husky-4-to-5.svg)](https://www.npmjs.com/package/husky-4-to-5)
 [![build](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml)
 
-Migrates [husky](https://typicode.github.io/husky/) 4 to 8.
+Migrates [husky](https://typicode.github.io/husky/) from 4 to 8.
 
 ```sh
 npx husky-4-to-5
 ```
 
-Alternatively, there's [typicode/husky-4-to-7](https://github.com/typicode/husky-4-to-7) (requires npm 7+).
+Alternatively, there's [typicode/husky-4-to-8](https://github.com/typicode/husky-4-to-8) (requires npm 7+).
 
 ## Install
 
