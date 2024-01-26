@@ -45,26 +45,15 @@ describe('.huskyrc.json', () => {
   });
 
   it('adds .husky/commit-msg', async () => {
-    expect(await readFile(resolve(buildDirectory, '.husky/commit-msg')))
-      .toMatchInlineSnapshot(`
-      "#!/usr/bin/env sh
-      . "$(dirname -- "$0")/_/husky.sh"
-
-
-      commitlint --edit $1
-      "
-    `);
+    expect(
+      await readFile(resolve(buildDirectory, '.husky/commit-msg')),
+    ).toMatchSnapshot();
   });
 
   it('adds .husky/pre-commit', async () => {
-    expect(await readFile(resolve(buildDirectory, '.husky/pre-commit')))
-      .toMatchInlineSnapshot(`
-      "#!/usr/bin/env sh
-      . "$(dirname -- "$0")/_/husky.sh"
-
-      npm test
-      "
-    `);
+    expect(
+      await readFile(resolve(buildDirectory, '.husky/pre-commit')),
+    ).toMatchSnapshot();
   });
 
   it('updates package.json', () => {
@@ -73,13 +62,10 @@ describe('.huskyrc.json', () => {
     expect(packageJson).toMatchObject({
       scripts: {
         test: 'exit 0',
-        postinstall: 'husky install',
-        postpublish: 'pinst --enable',
-        prepublishOnly: 'pinst --disable',
+        prepare: 'husky',
       },
       devDependencies: {
-        husky: expect.stringContaining('^8.'),
-        pinst: expect.stringContaining('^'),
+        husky: expect.stringContaining('^9.'),
       },
     });
   });
