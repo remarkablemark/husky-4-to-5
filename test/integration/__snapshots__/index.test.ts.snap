@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`.huskyrc.json adds .husky/commit-msg 1`] = `
+"commitlint --edit $1
+"
+`;
+
+exports[`.huskyrc.json adds .husky/pre-commit 1`] = `
+"npm test
+"
+`;

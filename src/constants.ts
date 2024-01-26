@@ -1,1 +1,1 @@
-export const HUSKY_VERSION = 8;
+export const HUSKY_VERSION = 9;

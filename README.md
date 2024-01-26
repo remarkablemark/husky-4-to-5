@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/husky-4-to-5.svg)](https://www.npmjs.com/package/husky-4-to-5)
 [![build](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/husky-4-to-5/actions/workflows/build.yml)
 
-:dog: Migrate [husky](https://typicode.github.io/husky/) from 4 to 8.
+:dog: Migrate [husky](https://typicode.github.io/husky/) from 4 to 9.
 
 ```sh
 npx husky-4-to-5
@@ -48,17 +48,9 @@ npx husky-4-to-5
 The script:
 
 - updates `package.json` scripts:
-  - prepends `husky install` to `postinstall`
+  - prepends `husky` to `prepare`
 - installs devDependency:
   - [husky](https://www.npmjs.com/package/husky)
-
-If the package is not `private`, the script also:
-
-- updates `package.json` scripts:
-  - prepends `pinst --enable` to `postpublish`
-  - prepends `pinst --disable` to `prepublishOnly`
-- installs devDependency:
-  - [pinst](https://www.npmjs.com/package/pinst)
 
 Finally, the script adds the hooks from one of the config files:
 

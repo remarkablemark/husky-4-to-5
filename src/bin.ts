@@ -77,24 +77,11 @@ const devDependencies = [`husky@${HUSKY_VERSION}`];
  * Update `package.json`.
  */
 packageJson.scripts = packageJson.scripts || {};
-const { postinstall } = packageJson.scripts;
-const huskyInstall = 'husky install';
-packageJson.scripts.postinstall = postinstall
-  ? `${huskyInstall} && ${postinstall}`
+const { prepare } = packageJson.scripts;
+const huskyInstall = 'husky';
+packageJson.scripts.prepare = prepare
+  ? `${huskyInstall} && ${prepare}`
   : huskyInstall;
-
-if (!packageJson.private) {
-  devDependencies.push('pinst');
-  const { postpublish, prepublishOnly } = packageJson.scripts;
-  const pinstEnable = 'pinst --enable';
-  packageJson.scripts.postpublish = postpublish
-    ? `${pinstEnable} && ${postpublish}`
-    : pinstEnable;
-  const pinstDisable = 'pinst --disable';
-  packageJson.scripts.prepublishOnly = prepublishOnly
-    ? `${pinstDisable} && ${prepublishOnly}`
-    : pinstDisable;
-}
 
 write(packageJsonPath, packageJson);
 
@@ -128,14 +115,12 @@ Object.entries(husky.hooks).forEach(([hook, command]) => {
   const huskyHookPath = join('.husky', hook);
 
   if (/HUSKY_GIT_PARAMS/.test(command)) {
-    exec(`npx husky set ${huskyHookPath} ''`);
     command = command
       .replace(/-E HUSKY_GIT_PARAMS/g, '--edit $1')
       .replace(/HUSKY_GIT_PARAMS/g, '$1');
-    exec(`echo '${command}' >> ${huskyHookPath}`);
-  } else {
-    exec(`npx husky set ${huskyHookPath} '${command}'`);
   }
+
+  exec(`echo '${command}' >> ${huskyHookPath}`);
 });
 
 if (isGitRepository) {
@@ -154,4 +139,4 @@ if (isGitRepository) {
 }
 
 log(`Finished ${name} v${version}`);
-log('Test your Git hooks by running them. Example: `git commit --amend`');
+log('Test your Git hooks by running `git commit --amend`');
