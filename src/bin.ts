@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -28,7 +30,8 @@ let isGitRepository = true;
 
 try {
   exec(`git -C ${cwd} rev-parse`);
-} catch (err) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+} catch (error) {
   isGitRepository = false;
 }
 
