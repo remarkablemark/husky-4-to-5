@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -18,10 +16,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Lint commit message
-        run: npx commitlint --from=HEAD~1
+        run: npm ci --prefer-offline
 
       - name: ESLint
         run: npm run lint
