@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.1](https://github.com/remarkablemark/husky-4-to-5/compare/v1.5.0...v1.5.1) (2024-08-28)
+
+
+### Continuous Integration
+
+* **github:** publish package to npm registry with provenance ([fd6d5b0](https://github.com/remarkablemark/husky-4-to-5/commit/fd6d5b0a190b5f9d8bc865fc62ca57e9e056ac5f))
+
 ## [1.5.0](https://github.com/remarkablemark/husky-4-to-5/compare/v1.4.1...v1.5.0) (2024-01-26)
 
 
