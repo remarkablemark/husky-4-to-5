@@ -5,8 +5,6 @@
 import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { name, version } from '../package.json';
 import { HUSKY_VERSION } from './constants';
 import { cwd, exec, log, write } from './utilities';
@@ -39,7 +37,6 @@ try {
  * Require `package.json`.
  */
 const packageJsonPath = join(cwd, 'package.json');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJson = require(packageJsonPath);
 
 /**
