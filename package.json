@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -p src/tsconfig.json",
     "clean": "rm -rf lib",
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc -p src/tsconfig.json --noEmit",
     "prepare": "husky",
@@ -34,6 +34,9 @@
   "devDependencies": {
     "@commitlint/cli": "19.4.0",
     "@commitlint/config-conventional": "19.2.2",
+    "@eslint/compat": "1.1.1",
+    "@eslint/eslintrc": "3.1.0",
+    "@eslint/js": "9.9.1",
     "@types/jest": "29.5.12",
     "@types/node": "22.5.1",
     "@typescript-eslint/eslint-plugin": "8.3.0",
