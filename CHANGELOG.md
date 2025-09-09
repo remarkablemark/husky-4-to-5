@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.1 (2025-09-09)
+
+
+### Features
+
+* migrate to husky 9 ([99ea63d](https://github.com/remarkablemark/husky-4-to-5/commit/99ea63db5b37ace29ccf3b57e6eebf70f2144b95))
+* migrate to husky 9 ([136ac98](https://github.com/remarkablemark/husky-4-to-5/commit/136ac985353fb8bc4842431b15dfc34692d23da6))
+
+
+### Miscellaneous Chores
+
+* release 1.4.1 ([f4e816d](https://github.com/remarkablemark/husky-4-to-5/commit/f4e816d1e3d582833f5f02567e161b0d32701198))
+
+
+### Continuous Integration
+
+* **github:** publish package to npm registry with provenance ([fd6d5b0](https://github.com/remarkablemark/husky-4-to-5/commit/fd6d5b0a190b5f9d8bc865fc62ca57e9e056ac5f))
+
 ## [1.5.1](https://github.com/remarkablemark/husky-4-to-5/compare/v1.5.0...v1.5.1) (2024-08-28)
 
 
