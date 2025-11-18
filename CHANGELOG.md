@@ -1,20 +1,22 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+## [1.5.2](https://github.com/remarkablemark/husky-4-to-5/compare/v1.5.1...v1.5.2) (2025-11-18)
+
+### Miscellaneous Chores
+
+- release 1.5.2 ([b9c2848](https://github.com/remarkablemark/husky-4-to-5/commit/b9c2848ada52da831afa2b30d86dc610c7e26e98))
 
 ## [1.5.1](https://github.com/remarkablemark/husky-4-to-5/compare/v1.5.0...v1.5.1) (2024-08-28)
 
-
 ### Continuous Integration
 
-* **github:** publish package to npm registry with provenance ([fd6d5b0](https://github.com/remarkablemark/husky-4-to-5/commit/fd6d5b0a190b5f9d8bc865fc62ca57e9e056ac5f))
+- **github:** publish package to npm registry with provenance ([fd6d5b0](https://github.com/remarkablemark/husky-4-to-5/commit/fd6d5b0a190b5f9d8bc865fc62ca57e9e056ac5f))
 
 ## [1.5.0](https://github.com/remarkablemark/husky-4-to-5/compare/v1.4.1...v1.5.0) (2024-01-26)
 
-
 ### Features
 
-* migrate to husky 9 ([136ac98](https://github.com/remarkablemark/husky-4-to-5/commit/136ac985353fb8bc4842431b15dfc34692d23da6))
+- migrate to husky 9 ([136ac98](https://github.com/remarkablemark/husky-4-to-5/commit/136ac985353fb8bc4842431b15dfc34692d23da6))
 
 ## [1.4.1](https://github.com/remarkablemark/husky-4-to-5/compare/v1.4.0...v1.4.1) (2024-01-26)
 
